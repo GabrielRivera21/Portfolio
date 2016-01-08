@@ -2,7 +2,7 @@
   "name": "Portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "client/app.js",
+  "main": "./src/app.js",
   "dependencies": {
     "history": "^1.17.0",
     "react": "^0.14.5",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --inline",
-    "watch": "babel --presets react client --watch --out-dir build",
+    "watch": "babel --presets react src --watch --out-dir build",
     "build": "webpack --config webpack.config.js --progress --profile --colors"
   },
   "keywords": [],

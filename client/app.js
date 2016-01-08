@@ -1,0 +1,21 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+import { Router, Route, Link, browserHistory } from 'react-router';
+
+import Index from './layouts/Index'
+import About from './components/About';
+import Project from './components/Project';
+import Skill from './components/Skill';
+import Work from './components/Work';
+
+ReactDOM.render(
+    <Router history={browserHistory}>
+      <Route path="/" component={Index}>
+        <Route path="about" component={About}/>
+        <Route path="project" component={Project}/>
+        <Route path="skill" component={Skill}/>
+        <Route path="work" component={Work}/>
+      </Route>
+    </Router>,
+    document.getElementById('content')
+);

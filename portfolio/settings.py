@@ -32,6 +32,9 @@ class Common(Configuration):
         'rest_framework_swagger',
 
         # Apps
+        'portfolio.projects',
+        'portfolio.skills',
+        'portfolio.works',
     )
 
     MIDDLEWARE_CLASSES = (
@@ -115,8 +118,8 @@ class Common(Configuration):
     ]
 
     REST_FRAMEWORK = {
-        'PAGINATE_BY': 20,
-        'MAX_PAGINATE_BY': 100,
+        'PAGE_SIZE': 30,
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework.authentication.SessionAuthentication',
         ),

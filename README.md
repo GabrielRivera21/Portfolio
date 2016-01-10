@@ -1,6 +1,6 @@
 ## Python
 
-For this project you will need python 2.7.x installed on your computer.
+For this project you will need python 3.4.x installed on your computer.
 You can download the python installer [here.](https://www.python.org/downloads/)
 
 **Note: Depending on your Operating system, you may have python already installed.**
@@ -47,7 +47,7 @@ To create a `virtualenv`, select a folder where you want to work with the projec
  Fist execute this command in order to install psycopg2 for windows
 
  ```bash
- $ easy_install http://www.stickpeople.com/projects/python/win-psycopg/2.6.1/psycopg2-2.6.1.win32-py2.7-pg9.4.4-release.exe
+ $ easy_install http://www.stickpeople.com/projects/python/win-psycopg/2.6.1/psycopg2-2.6.1.win32-py3.4-pg9.4.4-release.exe
  ```
 
 #### Every OS
@@ -98,9 +98,13 @@ To create a `virtualenv`, select a folder where you want to work with the projec
 
 ##### Installation
 
+If you wish to make development on the frontend only, open another terminal window and
+do the following:
+
 1. Make sure you have the latest version of node and npm installed. I recommend nvm [https://github.com/creationix/nvm] (https://github.com/creationix/nvm).
 2. Install webpack globally `npm install -g webpack webpack-dev-server`
+3. Go into the client directory `cd client`
 3. Run `npm install`
 4. Run 'npm run watch'
-5. Make your changes
-6. Run 'npm run build'
+5. Run 'npm start' this starts a webpack server
+6. After finishing run 'npm run build' to have a production ready frontend

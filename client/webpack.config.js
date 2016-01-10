@@ -5,8 +5,8 @@ module.exports = {
     app: ['./build/app.js']
   },
   output: {
-    path: path.resolve(__dirname, '../static'),
-    publicPath: '/static/',
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
     filename: 'app.js'
   },
   module: {
@@ -15,7 +15,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel?presets[]=es2015&presets[]=react&presets[]=stage-0',
-      }
+      },
     ]
   }
 };

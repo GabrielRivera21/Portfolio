@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-class Index extends React.Component {
+var Index = React.createClass({
   render() {
     return (
       <div>
@@ -13,6 +13,6 @@ class Index extends React.Component {
       </div>
     );
   }
-}
+});
 
 export default Index;

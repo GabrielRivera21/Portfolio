@@ -32,4 +32,16 @@ urlpatterns = [
         r'^$',
         views.HomeView.as_view()
     ),
+    url(
+        r'^api/',
+        include('portfolio.projects.urls')
+    ),
+    url(
+        r'^api/',
+        include('portfolio.skills.urls')
+    ),
+    url(
+        r'^api/',
+        include('portfolio.works.urls')
+    )
 ]

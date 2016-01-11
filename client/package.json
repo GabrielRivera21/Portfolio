@@ -6,12 +6,10 @@
   "dependencies": {
     "history": "^1.17.0",
     "react": "^0.14.5",
-    "react-addons-css-transition-group": "^0.14.6",
-    "react-addons-transition-group": "^0.14.6",
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.5",
-    "react-router": "^1.0.3",
-    "velocity-react": "^1.1.1"
+    "react-flipcard": "^0.2.1",
+    "react-router": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",
@@ -25,7 +23,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline",
     "watch": "babel --presets react src --watch --out-dir build",
-    "build": "webpack --config webpack.production.config.js --progress --profile --colors"
+    "build": "webpack -p --config webpack.production.config.js --progress --profile --colors"
   },
   "keywords": [],
   "author": "Gabriel Rivera Per-ossenkopp",

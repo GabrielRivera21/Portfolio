@@ -1,33 +1,34 @@
 import React from 'react';
-import { Jumbotron, Button } from 'react-bootstrap'
+import Profile from './profile';
+import FlipCard from 'react-flipcard';
 
 let styles = {
-    header: {
-        margin: "-20px 0% 1% 0%"
+    linkText: {
+       color: "#1565c0"
     },
-    profile_pic: {
-        width: "200px"
+    card: {
+      height: "200px",
+      width: "300px",
+      margin: "15px"
     },
-    profile_text: {
-        fontSize: "36px"
+    cardGrid: {
+      margin: "30px"
     },
-    flexBox: {
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
-        padding: "10px",
-        listStyleType: "none",
-        marginTop: "-20px",
-        fontSize: "18px"
+    providerLogoFront: {
+      height: "200px",
+      width: "300px"
+    },
+    providerLogoBack: {
+      height: "80px",
+      width: "300px"
     }
-}
+};
 
 var Content = React.createClass({
     render() {
       return (
         <div className="container">
-          <Summary/>
+          <TechnologyUsed />
         </div>
       );
     }
@@ -35,75 +36,134 @@ var Content = React.createClass({
 
 
 var Header = React.createClass({
-    render: function() {
+    render() {
         return (
-            <Jumbotron style={styles.header}>
-                <div className="container">
-                    <h2>Gabriel Rivera Per-ossenkopp</h2>
-                    <hr/>
-                    <ProfileInfo/>
-                    <div className="col-md-3">
-                        <img style={styles.profile_pic} src="assets/img/profile_pic.jpg" alt="profile_pic"/>
-                    </div>
-                    <div className="col-md-9">
-                        <div style={styles.profile_text} id="profile_info">
-                            <p>
-                              Welcome to my Portfolio Page.
-                              Here you will be able to see my skill set and projects that
-                              I've worked on, both personally and those that I did for my employers, that
-                              I have permission to show.
-                            </p>
-                        </div>
-                        <Button bsStyle="material-blue-800" bsSize="large">Contact Me</Button>
-                    </div>
-                </div>
-            </Jumbotron>
+            <Profile />
         )
     }
 });
 
-var ProfileInfo = React.createClass({
+var TechnologyUsed = React.createClass({
+    getInitialState() {
+        return {
+          tech: [
+            {
+              title: "Python",
+              link: "https://python.org",
+              for: "Code the Backend",
+              image: "/static/assets/img/python.png"
+            },
+            {
+              title: "Django",
+              link: "https://www.djangoproject.com/",
+              for: "Backend",
+              image: "/static/assets/img/django.png"
+            },
+            {
+              title: "React",
+              link: "https://facebook.github.io/react/",
+              for: "Frontend",
+              image: "/static/assets/img/react.jpg"
+            },
+            {
+              title: "Django Rest Framework",
+              link: "http://www.django-rest-framework.org",
+              for: "REST API",
+              image:"/static/assets/img/django-rest.png"
+            },
+            {
+              title: "Heroku",
+              link: "https://heroku.com",
+              for: "Hosting",
+              image: "/static/assets/img/heroku.png"
+            },
+            {
+              title: "Postgres DB",
+              link: "http://www.postgresql.org/",
+              for: "Database",
+              image: "/static/assets/img/postgresql.jpg"
+            },
+            {
+              title: "npm",
+              link: "https://www.npmjs.com/",
+              for: "build and watch",
+              image: "/static/assets/img/npm-logo.svg"
+            },
+            {
+              title: "Webpack",
+              link: "https://webpack.github.io/",
+              for: "build",
+              image: "/static/assets/img/webpack.jpg"
+            },
+            {
+              title: "Bootstrap",
+              link: "https://getbootstrap.com",
+              for: "CSS Framework",
+              image: "/static/assets/img/bootstrap.jpg"
+            },
+          ]
+        }
+    },
+    render() {
+      var technology = this.state.tech.map(function(tech, i){
+          return (
+            <div key={tech.title} className="col-sm-4">
+              <div style={styles.card}>
+                <FlipCard>
+                  <FrontCardTechUsed image={tech.image} />
+                  <BackCardTechUsed link={tech.link}
+                        title={tech.title}
+                        for={tech.for}
+                        image={tech.image} />
+                </FlipCard>
+              </div>
+            </div>
+          )
+      });
+      return (
+        <div className="techUsed">
+          <h1 className="centered">Technology Used to Create this Website</h1>
+          <div style={styles.cardGrid} className="row">
+             {technology}
+          </div>
+        </div>
+      );
+    }
+});
+
+var FrontCardTechUsed = React.createClass({
     render() {
       return (
-        <ul style={styles.flexBox}>
-          <li>Role: Software Engineer</li>
-          <li>Email: gabriel.rivera2192@gmail.com</li>
-          <li>Github: GabrielRivera21</li>
-          <li>Twitter: @griveraper</li>
-        </ul>
-      )
+        <div style={styles.card} className="card">
+          <img style={styles.providerLogoFront} src={this.props.image} />
+        </div>
+      );
     }
 });
 
-var Summary = React.createClass({
-    render: function() {
+var BackCardTechUsed = React.createClass({
+    render() {
         return (
-              <div>
-                <h1 className="centered">Summary</h1>
-                <h3>Bio</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusantium omnis, ipsam deserunt autem iste, ullam error
-                    perspiciatis totam excepturi natus dolorem, aliquid consectetur quibusdam
-                    inventore fuga neque debitis eveniet voluptates.
-
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Accusantium omnis, ipsam deserunt autem iste, ullam error
-                    perspiciatis totam excepturi natus dolorem, aliquid consectetur quibusdam
-                    inventore fuga neque debitis eveniet voluptates.
-                </p>
-                <p>A little Bio here..</p>
-              </div>
-        )
+          <div style={styles.card} className="card centered">
+            <img style={styles.providerLogoBack} src={this.props.image} />
+            <h3>
+              <a style={styles.linkText} target="_blank" href={this.props.link}>
+                {this.props.title}
+              </a>
+            </h3>
+            <p>This technology was used for: </p>
+            <p>{this.props.for}</p>
+          </div>
+        );
     }
 });
 
 var Home = React.createClass({
-    render: function() {
+    render() {
         return (
             <div>
-                <Header/>
-                <Content/>
+                <Header />
+                <Content />
             </div>
         );
     }

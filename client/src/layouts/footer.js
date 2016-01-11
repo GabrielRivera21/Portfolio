@@ -4,8 +4,10 @@ class Footer extends React.Component {
   render() {
     return (
         <footer>
-            <p className="pull-right"><a href="#">Back to Top.</a></p>
-            <p>&copy; 2016 Gabriel Rivera Per-ossenkopp's Portfolio</p>
+            <div className="container">
+                <p className="pull-right"><a href="#">Back to Top.</a></p>
+                <p>&copy; 2016 Gabriel Rivera Per-ossenkopp's Portfolio</p>
+            </div>
         </footer>
     );
   }

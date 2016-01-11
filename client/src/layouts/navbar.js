@@ -1,65 +1,83 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
+import { Navbar, NavItem, Nav, Button } from 'react-bootstrap';
 
-var NavLinks = React.createClass({
-    getInitialState() {
-        return {activeTabClassName: "home"}
+
+var NavLeftLinks = React.createClass({
+    getInitialState: function() {
+        return {
+            links: [
+                {title: "About", url: "/about"},
+                {title: "Skills", url: "/skill"},
+                {title: "Projects", url: "/project"},
+                {title: "Work Experience", url: "/work"}
+            ]
+        };
     },
-    render() {
+    render: function() {
+        var links = this.state.links.map(function(link, i) {
+            return (
+                <li key={link.url}><Link to={link.url}>{link.title}</Link></li>
+            )
+        });
         return (
-          <ul className="nav navbar-nav">
-              <li active="active"><IndexLink to={'/'}>Home</IndexLink></li>
-              <li><Link to={'/about'}>About</Link></li>
-              <li><Link to={'/skill'}>Skills</Link></li>
-              <li><Link to={'/project'}>Projects</Link></li>
-              <li><Link to={'/work'}>Work</Link></li>
-          </ul>
-        )
+            <Nav>
+                <li><IndexLink to={'/'}>Home</IndexLink></li>
+                {links}
+            </Nav>
+        );
     }
 });
 
-var NavDjangoLinks = React.createClass({
-    render() {
+var NavRightLinks = React.createClass({
+    getInitialState: function() {
+        return {
+            links: [
+                {title: 'API Docs', url: '/docs'}
+            ]
+        };
+    },
+    render: function() {
+        var links = this.state.links.map(function(link, i) {
+            return (
+                <NavItem key={link.url} eventKey={link.url} href={link.url}>{link.title}</NavItem>
+            )
+        });
         return (
-            <ul className="nav navbar-nav navbar-right">
-              <li><a href="/docs/">API Docs</a></li>
-            </ul>
-        )
+           <Nav pullRight>
+                {links}
+           </Nav>
+        );
     }
-})
+});
 
 var NavWrapper = React.createClass({
     render() {
         return (
-         <nav className="navbar navbar-material-blue-800">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                  <a className="navbar-brand" href="#">Gabriel's Portfolio</a>
-                </div>
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  {this.props.children}
-                </div>
-              </div>
-         </nav>
-      )
+            <Navbar className="navbar-material-blue-800">
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="#">Gabriel's Portfolio</a>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    {this.props.children}
+                </Navbar.Collapse>
+            </Navbar>
+        )
     }
 });
 
-var Navbar = React.createClass({
+var MainNavbar = React.createClass({
   render() {
     return (
         <NavWrapper>
-            <NavLinks/>
-            <NavDjangoLinks/>
+            <NavLeftLinks/>
+            <NavRightLinks/>
         </NavWrapper>
     );
   }
 });
 
-export default Navbar;
+export default MainNavbar;

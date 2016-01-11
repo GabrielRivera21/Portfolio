@@ -26,7 +26,7 @@ $ pip install virtualenv
 ```
 
 To create a `virtualenv`, select a folder where you want to work with the project and do the following:
- 
+
  ```bash
  $ virtualenv venv
  ```
@@ -105,6 +105,11 @@ do the following:
 2. Install webpack globally `npm install -g webpack webpack-dev-server`
 3. Go into the client directory `cd client`
 3. Run `npm install`
-4. Run 'npm run watch'
-5. Run 'npm start' this starts a webpack server
-6. After finishing run 'npm run build' to have a production ready frontend
+4. Run `npm run watch`
+5. Make your changes
+6. After finishing run `npm run build` to have a production ready frontend
+
+##### Running Webpack Server only server
+
+Follow steps 1 through 4 and then:
+5. Run `npm start` to run a Webpack Dev server

@@ -8,19 +8,19 @@ let styles = {
     },
     card: {
       height: "200px",
-      width: "300px",
-      margin: "15px"
+      width: "100%",
+      marginBottom: "30px"
     },
     cardGrid: {
-      margin: "30px"
+      marginBottom: "15px",
     },
     providerLogoFront: {
       height: "200px",
-      width: "300px"
+      width: "100%"
     },
     providerLogoBack: {
       height: "80px",
-      width: "300px"
+      width: "100%"
     }
 };
 
@@ -29,7 +29,7 @@ var Content = React.createClass({
       return (
         <div className="container">
           <TechnologyUsed />
-        </div>
+        </div> 
       );
     }
 });
@@ -107,7 +107,7 @@ var TechnologyUsed = React.createClass({
     render() {
       var technology = this.state.tech.map(function(tech, i){
           return (
-            <div key={tech.title} className="col-sm-4">
+            <div key={tech.title} className="col-sm-6 col-md-6 col-lg-4">
               <div style={styles.card}>
                 <FlipCard>
                   <FrontCardTechUsed image={tech.image} />

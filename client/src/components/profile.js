@@ -19,6 +19,9 @@ let styles = {
         listStyleType: "none",
         marginTop: "-20px",
         fontSize: "18px"
+    },
+    centered: {
+        textAlign: "center"
     }
 };
 
@@ -26,10 +29,10 @@ var ProfileInfo = React.createClass({
     render() {
       return (
         <ul style={styles.flexBox}>
-          <li>Role: Software Engineer</li>
-          <li>Email: gabriel.rivera2192@gmail.com</li>
-          <li>Github: GabrielRivera21</li>
-          <li>Twitter: @griveraper</li>
+          <li style={styles.centered}><b>Role:</b> Software Engineer</li>
+          <li style={styles.centered}><b>Email:</b> gabriel.rivera2192@gmail.com</li>
+          <li style={styles.centered}><b>Github:</b> GabrielRivera21</li>
+          <li style={styles.centered}><b>Twitter:</b> @griveraper</li>
         </ul>
       );
     }
@@ -47,7 +50,7 @@ var Profile = React.createClass({
                       <img style={styles.profile_pic} src="/static/assets/img/profile_pic.jpg" alt="profile_pic"/>
                   </div>
                   <div className="col-md-9">
-                      <div id="welcome_text">
+                      <div style={styles.centered} id="welcome_text">
                           <p>
                             Welcome to my Portfolio Page.
                             Here you will be able to see my skill set and projects that

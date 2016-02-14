@@ -1,3 +1,14 @@
+# Portfolio
+A website I made for myself to test different technologies and shows 
+some of the projects I have worked on.
+
+This website is under development, to see the current state of the site you 
+can see the deployment in [Heroku](https://heroku.com) at the following url
+
+[https://grp-portfolio.herokuapp.com](https://grp-portfolio.herokuapp.com)
+
+
+
 ## Python
 
 For this project you will need python 3.4.x installed on your computer.
@@ -112,4 +123,5 @@ do the following:
 ##### Running Webpack Server only server
 
 Follow steps 1 through 4 and then:
+
 5. Run `npm start` to run a Webpack Dev server

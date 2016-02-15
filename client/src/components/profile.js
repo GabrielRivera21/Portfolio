@@ -5,7 +5,7 @@ let styles = {
     block: {
         margin: "-20px 0% 1% 0%"
     },
-    profile_pic: {
+    profilePic: {
         width: "175px",
         height: "156px",
         marginBottom: "10px"
@@ -47,7 +47,7 @@ var Profile = React.createClass({
                   <hr/>
                   <ProfileInfo/>
                   <div className="col-md-3 centered">
-                      <img style={styles.profile_pic} src="/static/assets/img/profile_pic.jpg" alt="profile_pic"/>
+                      <img style={styles.profilePic} src="/static/assets/img/profile_pic.jpg" alt="profile_pic"/>
                   </div>
                   <div className="col-md-9">
                       <div style={styles.centered} id="welcome_text">

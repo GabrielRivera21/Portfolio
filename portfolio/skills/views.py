@@ -9,8 +9,9 @@ from .filters import SkillFilter
 
 class SkillView(generics.ListAPIView):
     serializer_class = SkillSerializer
-    queryset = Skill.objects.all()
+    queryset = Skill.objects.all().order_by('-proficiency_level', 'name')
     filter_class = SkillFilter
+    ordering_fields = ('proficiency_level', 'name')
 
     def get(self, request, *args, **kwargs):
         """

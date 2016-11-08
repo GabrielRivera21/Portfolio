@@ -6,7 +6,7 @@ class Footer extends React.Component {
         <footer>
             <div className="container">
                 <p className="pull-right"><a href="#">Back to Top.</a></p>
-                <p>&copy; 2016 Gabriel Rivera Per-ossenkopp's Portfolio</p>
+                <p>&copy; 2016 Gabriel Rivera Per-ossenkopp Portfolio</p>
             </div>
         </footer>
     );

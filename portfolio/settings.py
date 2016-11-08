@@ -181,6 +181,8 @@ class Development(Common):
 
     DEBUG_TOOLBAR_PATCH_SETTINGS = values.BooleanValue(True)
 
+    CORS_ORIGIN_ALLOW_ALL = values.BooleanValue(True)
+
 
 class Staging(Common):
     """

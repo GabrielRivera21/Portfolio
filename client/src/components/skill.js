@@ -1,5 +1,6 @@
 import React from 'react';
 import Parallax from 'react-parallax'
+import { Modal, Button } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component'
 import Loader from 'react-loader';
 
@@ -94,10 +95,32 @@ class SkillList extends React.Component {
 };
 
 class SkillItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.showSkillDetails = this.showSkillDetails.bind(this);
+        this.hideSkillDetails = this.hideSkillDetails.bind(this);
+        this.state = {
+            showDetails: false
+        };
+    }
+    showSkillLevelName(proficiency_level) {
+        if (proficiency_level == 1) return 'Novice';
+        if (proficiency_level == 2) return 'Familiar';
+        if (proficiency_level == 3) return 'Proficient';
+        if (proficiency_level == 4) return 'Advanced';
+        if (proficiency_level == 5) return 'Expert';
+        return 'None'
+    }
+    showSkillDetails() {
+        this.setState(() => ({showDetails: true}));
+    }
+    hideSkillDetails() {
+        this.setState(() => ({showDetails: false}));
+    }
     render() {
         return (
             <div className="skillItem col-sm-6 col-md-6 col-lg-4">
-                <div style={styles.card} className="card-panel">
+                <div style={styles.card} className="card-panel" onClick={this.showSkillDetails}>
                     <h2>{this.props.name}</h2>
                     <div style={styles.star}>
                         <StarRatingComponent
@@ -106,10 +129,22 @@ class SkillItem extends React.Component {
                             editing={false}
                             />
                     </div>
-                    <div className="projects">
-                        {this.props.children}
-                    </div>
                 </div>
+                <Modal show={this.state.showDetails} onHide={this.hideSkillDetails}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{this.props.name}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h4>Skill level: {this.showSkillLevelName(this.props.proficiency_level)}</h4>
+                        <hr />
+                        <div className="projects">
+                            {this.props.children}
+                        </div>
+                    </Modal.Body>
+                  <Modal.Footer>
+                    <Button onClick={this.hideSkillDetails}>Close</Button>
+                  </Modal.Footer>
+                </Modal>
             </div>
         );
     }

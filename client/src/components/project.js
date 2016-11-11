@@ -1,11 +1,11 @@
 import React from 'react';
 
-var Project = React.createClass({
+class Project extends React.Component {
   render() {
     return (
       <h1>Project Page</h1>
     );
   }
-})
+};
 
 export default Project;

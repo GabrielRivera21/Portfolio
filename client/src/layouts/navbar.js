@@ -3,9 +3,10 @@ import { Link, IndexLink } from 'react-router';
 import { Navbar, NavItem, Nav, Button } from 'react-bootstrap';
 
 
-var NavLeftLinks = React.createClass({
-    getInitialState: function() {
-        return {
+class NavLeftLinks extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             links: [
                 {title: "About", url: "/about"},
                 {title: "Skills", url: "/skill"},
@@ -13,13 +14,13 @@ var NavLeftLinks = React.createClass({
                 {title: "Work Experience", url: "/work"}
             ]
         };
-    },
-    render: function() {
+    }
+    render() {
         var links = this.state.links.map(function(link, i) {
-            return (
-                <li key={link.url}><Link to={link.url}>{link.title}</Link></li>
-            )
-        });
+                return (
+                    <li key={link.url}><Link to={link.url}>{link.title}</Link></li>
+                )
+            });
         return (
             <Nav>
                 <li><IndexLink to={'/'}>Home</IndexLink></li>
@@ -27,37 +28,38 @@ var NavLeftLinks = React.createClass({
             </Nav>
         );
     }
-});
+};
 
-var NavRightLinks = React.createClass({
-    getInitialState: function() {
-        return {
+class NavRightLinks extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             links: [
-                {title: 'API Docs', url: '/docs'}
+                {title: 'API Docs', url: '/docs'},
             ]
         };
-    },
-    render: function() {
+    }
+    render() {
         var links = this.state.links.map(function(link, i) {
-            return (
-                <NavItem key={link.url} eventKey={link.url} href={link.url}>{link.title}</NavItem>
-            )
-        });
+                return (
+                    <NavItem key={link.url} eventKey={link.url} href={link.url}>{link.title}</NavItem>
+                )
+            });
         return (
            <Nav pullRight>
                 {links}
            </Nav>
         );
     }
-});
+};
 
-var NavWrapper = React.createClass({
+class NavWrapper extends React.Component {
     render() {
         return (
             <Navbar className="navbar-material-blue-800">
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">Gabriel's Portfolio</a>
+                        <a href="#">Gabriel Portfolio</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
@@ -65,11 +67,11 @@ var NavWrapper = React.createClass({
                     {this.props.children}
                 </Navbar.Collapse>
             </Navbar>
-        )
+        );
     }
-});
+};
 
-var MainNavbar = React.createClass({
+class MainNavbar extends React.Component {
   render() {
     return (
         <NavWrapper>
@@ -78,6 +80,6 @@ var MainNavbar = React.createClass({
         </NavWrapper>
     );
   }
-});
+};
 
 export default MainNavbar;

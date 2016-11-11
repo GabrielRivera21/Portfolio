@@ -24,7 +24,7 @@ let styles = {
     }
 };
 
-var Content = React.createClass({
+class Content extends React.Component{
     render() {
       return (
         <div className="container">
@@ -32,20 +32,21 @@ var Content = React.createClass({
         </div> 
       );
     }
-});
+};
 
 
-var Header = React.createClass({
+class Header extends React.Component {
     render() {
         return (
             <Profile />
         )
     }
-});
+};
 
-var TechnologyUsed = React.createClass({
-    getInitialState() {
-        return {
+class TechnologyUsed extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
           tech: [
             {
               title: "Python",
@@ -102,36 +103,48 @@ var TechnologyUsed = React.createClass({
               image: "/static/assets/img/bootstrap.jpg"
             },
           ]
-        }
-    },
+        };
+    }
     render() {
-      var technology = this.state.tech.map(function(tech, i){
-          return (
-            <div key={tech.title} className="col-sm-6 col-md-6 col-lg-4">
+        var technology = this.state.tech.map(function(tech, i){
+              return (
+                    <div key={tech.title} className="col-sm-6 col-md-6 col-lg-4">
+                        <TechnologyCard
+                            title={tech.title}
+                            link={tech.link}
+                            for={tech.for}
+                            image={tech.image} />
+                    </div>
+              );
+            });
+        return (
+                <div className="techUsed">
+                  <h1 className="centered">Technology Used to Create this Website</h1>
+                  <div style={styles.cardGrid} className="row">
+                     {technology}
+                  </div>
+                </div>
+            );
+    }
+};
+
+class TechnologyCard extends React.Component {
+    render() {
+        return (
               <div style={styles.card}>
                 <FlipCard>
-                  <FrontCardTechUsed image={tech.image} />
-                  <BackCardTechUsed link={tech.link}
-                        title={tech.title}
-                        for={tech.for}
-                        image={tech.image} />
+                  <FrontCardTechUsed image={this.props.image} />
+                  <BackCardTechUsed link={this.props.link}
+                        title={this.props.title}
+                        for={this.props.for}
+                        image={this.props.image} />
                 </FlipCard>
               </div>
-            </div>
-          )
-      });
-      return (
-        <div className="techUsed">
-          <h1 className="centered">Technology Used to Create this Website</h1>
-          <div style={styles.cardGrid} className="row">
-             {technology}
-          </div>
-        </div>
-      );
+            );
     }
-});
+};
 
-var FrontCardTechUsed = React.createClass({
+class FrontCardTechUsed extends React.Component {
     render() {
       return (
         <div style={styles.card} className="card">
@@ -139,9 +152,9 @@ var FrontCardTechUsed = React.createClass({
         </div>
       );
     }
-});
+};
 
-var BackCardTechUsed = React.createClass({
+class BackCardTechUsed extends React.Component {
     render() {
         return (
           <div style={styles.card} className="card centered">
@@ -156,9 +169,9 @@ var BackCardTechUsed = React.createClass({
           </div>
         );
     }
-});
+};
 
-var Home = React.createClass({
+class Home extends React.Component {
     render() {
         return (
             <div>
@@ -167,6 +180,6 @@ var Home = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default Home;

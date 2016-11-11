@@ -25,20 +25,20 @@ let styles = {
     }
 };
 
-var ProfileInfo = React.createClass({
+class ProfileInfo extends React.Component {
     render() {
       return (
         <ul style={styles.flexBox}>
           <li style={styles.centered}><b>Role:</b> Software Engineer</li>
           <li style={styles.centered}><b>Email:</b> gabriel.rivera2192@gmail.com</li>
           <li style={styles.centered}><b>Github:</b> GabrielRivera21</li>
-          <li style={styles.centered}><b>Twitter:</b> @griveraper</li>
+          <li style={styles.centered}><b>Twitter:</b> @grivera021</li>
         </ul>
       );
     }
-});
+};
 
-var Profile = React.createClass({
+class Profile extends React.Component {
     render() {
         return (
           <Jumbotron style={styles.block}>
@@ -67,6 +67,6 @@ var Profile = React.createClass({
           </Jumbotron>
         );
     }
-});
+};
 
 export default Profile;

@@ -1,11 +1,11 @@
 import React from 'react';
 
-var Work = React.createClass({
+class Work extends React.Component {
   render() {
     return (
       <h1>Work Page</h1>
     );
   }
-});
+};
 
 export default Work;

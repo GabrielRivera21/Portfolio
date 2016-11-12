@@ -1,7 +1,7 @@
+console.log(process.env.NODE_ENV);
 
-
-var Config = {
-    API: 'http://localhost:8002'
-}
+const Config = {
+    API: process.env.API_URL
+};
 
 export default Config;

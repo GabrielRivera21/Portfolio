@@ -19,11 +19,11 @@ class SkillView(generics.ListAPIView):
         pl = Programming Languages<br>
         st = Software Tools<br>
         fr = Frameworks<br>
-        ps = Professional Skills
+        dp = Deployment Environments
         ---
         parameters:
             - name: skill_type
-              description: ('pl', 'st', 'fr', 'ps') see above.
+              description: ('pl', 'st', 'fr', 'dp') see above.
               required: false
               type: string
               paramType: query

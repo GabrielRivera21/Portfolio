@@ -2,7 +2,7 @@ import React from 'react';
 import Parallax from 'react-parallax'
 import { Modal, Button } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component'
-import Loader from 'react-loader';
+import Spinner from 'react-spinkit';
 
 import Config from '../config/config';
 
@@ -21,13 +21,16 @@ let styles = {
         marginTop: 60
     },
     card: {
-      height: "150px",
+      height: 180,
       width: "100%",
       paddingLeft: "10px"
     },
     star: {
-        fontSize: 30
+        fontSize: 25
     },
+    skillLevel: {
+        fontSize: 20
+    }
 };
 
 class ParallaxHeader extends React.Component {
@@ -43,7 +46,7 @@ class ParallaxHeader extends React.Component {
 class SkillData extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loaded: false, data: [] };
+        this.state = { loaded: false, data: [], failedToLoad: false };
     }
     loadSkillsFromServer() {
         $.ajax({
@@ -53,7 +56,8 @@ class SkillData extends React.Component {
                 this.setState({loaded: true, data: response.results})
             }.bind(this),
             error: function(xhr, status, error) {
-                console.error(this.props.url, status, err.toString());
+                this.setState({loaded: true, failedToLoad: true})
+                console.error(this.props.url, status, error.toString());
             }.bind(this)
         });
     }
@@ -61,11 +65,20 @@ class SkillData extends React.Component {
         this.loadSkillsFromServer();
     }
     render() {
+        let displaySkills;
+        let loader = this.state.loaded ? null : <Spinner spinnerName="circle" className="centered" noFadeIn />
+
+        if(this.state.failedToLoad) {
+          displaySkills = <h3 className="centered">Failed to load Skills</h3>;
+        } else {
+          displaySkills = <SkillList data={this.state.data} />;
+        }
+        
         return (
             <div className="program-languages">
-                <Loader loaded={this.state.loaded} />
                 <div className="empty-large-block">
-                    <SkillList data={this.state.data} />
+                  {loader}
+                  {displaySkills}
                 </div>
             </div>
         );
@@ -74,7 +87,7 @@ class SkillData extends React.Component {
 
 class SkillList extends React.Component {
     render() {
-        var skillItemList = this.props.data.map(function(skill) {
+        let skillItemList = this.props.data.map(function(skill) {
                 return (
                     <SkillItem
                         key={skill.id}
@@ -129,20 +142,20 @@ class SkillItem extends React.Component {
                             editing={false}
                             />
                     </div>
+                    <p style={styles.skillLevel}>Skill level: {this.showSkillLevelName(this.props.proficiency_level)}</p>
                 </div>
                 <Modal show={this.state.showDetails} onHide={this.hideSkillDetails}>
                     <Modal.Header closeButton>
                         <Modal.Title>{this.props.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>Skill level: {this.showSkillLevelName(this.props.proficiency_level)}</h4>
-                        <hr />
+                        <h2 className="centered">Page Under Construction</h2>
                         <div className="projects">
                             {this.props.children}
                         </div>
                     </Modal.Body>
                   <Modal.Footer>
-                    <Button onClick={this.hideSkillDetails}>Close</Button>
+                    <Button className="btn btn-md btn-material-green-500" onClick={this.hideSkillDetails}>Close</Button>
                   </Modal.Footer>
                 </Modal>
             </div>

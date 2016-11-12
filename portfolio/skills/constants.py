@@ -1,6 +1,6 @@
 SKILL_TYPE = (
     ('pl', "Programming Language"),
     ('st', "Software Tools"),
-    ('fr', "Frameworks"),
+    ('fr', "Frameworks and Platforms"),
     ('dp', "Deployment Environment"),
 )

@@ -73,7 +73,7 @@ class SkillData extends React.Component {
         } else {
           displaySkills = <SkillList data={this.state.data} />;
         }
-        
+
         return (
             <div className="program-languages">
                 <div className="empty-large-block">
@@ -117,8 +117,8 @@ class SkillItem extends React.Component {
         };
     }
     showSkillLevelName(proficiency_level) {
-        if (proficiency_level == 1) return 'Novice';
-        if (proficiency_level == 2) return 'Familiar';
+        if (proficiency_level == 1) return 'Familiar';
+        if (proficiency_level == 2) return 'Novice';
         if (proficiency_level == 3) return 'Proficient';
         if (proficiency_level == 4) return 'Advanced';
         if (proficiency_level == 5) return 'Expert';
@@ -131,6 +131,16 @@ class SkillItem extends React.Component {
         this.setState(() => ({showDetails: false}));
     }
     render() {
+        let skillDetails = null;
+
+        if(this.state. showDetails) {
+            skillDetails =  <SkillDetails
+                                name={this.props.name}
+                                handleHideModal={this.hideSkillDetails}>
+                                  {this.props.children}
+                            </SkillDetails>;
+        }
+
         return (
             <div className="skillItem col-sm-6 col-md-6 col-lg-4">
                 <div style={styles.card} className="card-panel" onClick={this.showSkillDetails}>
@@ -144,23 +154,45 @@ class SkillItem extends React.Component {
                     </div>
                     <p style={styles.skillLevel}>Skill level: {this.showSkillLevelName(this.props.proficiency_level)}</p>
                 </div>
-                <Modal show={this.state.showDetails} onHide={this.hideSkillDetails}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{this.props.name}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h2 className="centered">Page Under Construction</h2>
-                        <div className="projects">
-                            {this.props.children}
-                        </div>
-                    </Modal.Body>
-                  <Modal.Footer>
-                    <Button className="btn btn-md btn-material-green-500" onClick={this.hideSkillDetails}>Close</Button>
-                  </Modal.Footer>
-                </Modal>
+                {skillDetails}
             </div>
         );
     }
+};
+
+class SkillDetails extends React.Component {
+    constructor(props) {
+        super(props);
+        this.hideSkillDetails = this.hideSkillDetails.bind(this);
+        this.state = {
+            showModal: true
+        };
+    }
+    hideSkillDetails() {
+        this.setState(() => ({showModal: false}));
+        this.props.handleHideModal();
+    }
+    render() {
+      return (
+          <Modal show={this.state.showModal} onHide={this.hideSkillDetails}>
+            <Modal.Header closeButton>
+                <Modal.Title>{this.props.name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <h2 className="centered">Page Under Construction</h2>
+                <div className="projects">
+                    {this.props.children}
+                </div>
+            </Modal.Body>
+          <Modal.Footer>
+            <Button className="btn btn-md btn-material-green-500" onClick={this.hideSkillDetails}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      );
+    }
+};
+SkillDetails.propTypes = {
+    handleHideModal: React.PropTypes.func.isRequired
 };
 
 class Skill extends React.Component {

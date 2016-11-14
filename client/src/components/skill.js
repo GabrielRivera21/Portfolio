@@ -133,7 +133,7 @@ class SkillItem extends React.Component {
     render() {
         let skillDetails = null;
 
-        if(this.state. showDetails) {
+        if(this.state.showDetails) {
             skillDetails =  <SkillDetails
                                 name={this.props.name}
                                 handleHideModal={this.hideSkillDetails}>

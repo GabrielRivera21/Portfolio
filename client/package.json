@@ -5,7 +5,9 @@
   "main": "./src/app.js",
   "dependencies": {
     "babel": "^6.5.2",
+    "google-map-react": "^0.21.3",
     "history": "^1.17.0",
+    "moment": "^2.16.0",
     "react": "^0.14.5",
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.5",

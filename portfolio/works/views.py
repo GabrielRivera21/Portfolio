@@ -8,7 +8,7 @@ from .serializers import WorkExperienceSerializer
 
 class WorkExperienceView(generics.ListAPIView):
     serializer_class = WorkExperienceSerializer
-    queryset = WorkExperience.objects.all()
+    queryset = WorkExperience.objects.all().order_by('-from_date')
 
     def get(self, request, *args, **kwargs):
         """

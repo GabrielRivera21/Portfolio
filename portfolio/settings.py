@@ -206,7 +206,7 @@ class Staging(Common):
 
     AWS_ACCESS_KEY_ID = values.Value(environ_prefix=None)
     AWS_SECRET_ACCESS_KEY = values.Value(environ_prefix=None)
-    AWS_STORAGE_BUCKET_NAME = 'portfolio'
+    AWS_STORAGE_BUCKET_NAME = 'grp-portfolio-media'
     AWS_QUERYSTRING_AUTH = values.BooleanValue(False)
 
     S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME

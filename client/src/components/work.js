@@ -182,6 +182,7 @@ class WorkMap extends React.Component {
     return (
       <div style={styles.workMap} className="work-map">
         <GoogleMap
+           bootstrapURLKeys={{ key: Config.GM_API_KEY, language: 'en'}}
            defaultCenter={[workLatitude, workLongitude]}
            defaultZoom={6}>
              <div style={styles.markerStyle} lat={this.props.latitude} lng={this.props.longitude}>

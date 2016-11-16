@@ -1,8 +1,15 @@
 import React from 'react';
 import Spinner from 'react-spinkit';
+import ImageGallery from 'react-image-gallery';
 
 import Config from '../config/config';
 
+let styles = {
+  projectImages: {
+    height: 200,
+    width: 200
+  }
+}
 class ProjectData extends React.Component {
     constructor(props) {
       super(props);
@@ -95,9 +102,34 @@ class ProjectItem extends React.Component {
 };
 
 class ProjectImageGallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onImageLoadHandler = this.onImageLoadHandler.bind(this);
+  }
+  onImageLoadHandler(event) {
+    console.log('Images loaded', event.target);
+  }
   render() {
+    let projectImages = [this.props.featured_image, ...this.props.extra_images];
+    let images = projectImages.map((image) => {
+      let imageUrl = image;
+      if(imageUrl.startsWith('/media')) {
+        imageUrl = `${Config.API}${image}`;
+      }
+      return {
+          original: imageUrl,
+          thumbnail: imageUrl,
+          originalClass: 'img-responsive',
+          thumbnailClass: 'img-responsive'
+        };
+    });
     return (
-      <img className="img-responsive" src={this.props.featured_image} />
+      <div className="project-images">
+        <ImageGallery
+          items={images}
+          slideInterval={3000}
+          onImageLoad={this.onImageLoadHandler} />
+      </div>
     );
   }
 };

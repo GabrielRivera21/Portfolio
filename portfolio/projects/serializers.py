@@ -4,7 +4,7 @@ from .models import Project
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-
+    work_experience = serializers.StringRelatedField()
     images = serializers.StringRelatedField(many=True)
 
     class Meta:

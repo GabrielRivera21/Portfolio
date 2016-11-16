@@ -22,7 +22,7 @@ let styles = {
   },
   workEmployerLogo: {
     maxWidth: 70,
-    maxheight: 70
+    maxHeight: 70
   },
   workDates: {
     marginBottom: 10,

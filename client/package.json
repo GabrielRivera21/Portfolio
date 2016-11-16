@@ -12,6 +12,7 @@
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.5",
     "react-flipcard": "^0.2.1",
+    "react-image-gallery": "^0.7.3",
     "react-router": "^1.0.3",
     "react-spinkit": "^1.1.11",
     "react-star-rating-component": "^1.2.2"

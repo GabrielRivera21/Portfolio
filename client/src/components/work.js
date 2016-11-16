@@ -20,6 +20,9 @@ let styles = {
   workEmployer: {
     color: "#1565c0"
   },
+  workPosition: {
+
+  },
   workEmployerLogo: {
     maxWidth: 70,
     maxheight: 70
@@ -161,7 +164,8 @@ class WorkDetail extends React.Component {
     return (
       <div style={styles.workDetails} className="work-detail">
         {employerLogo}
-        <h2 style={styles.workEmployer} className="employer">{this.props.employer} | {this.props.position}</h2>
+        <h2 style={styles.workEmployer} className="employer">{this.props.employer}</h2>
+        <h4 style={styles.workPosition} className="position">Position: {this.props.position}</h4>
         <h5 style={styles.workDates} className="work-dates">
           {from_date} - {this.props.currently_working ? 'Currently Working here' : to_date}
         </h5>
@@ -172,9 +176,6 @@ class WorkDetail extends React.Component {
 };
 
 class WorkMap extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     let workLatitude = parseFloat(this.props.latitude);
     let workLongitude = parseFloat(this.props.longitude);

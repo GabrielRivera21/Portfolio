@@ -29,7 +29,7 @@ class ProjectData extends React.Component {
         <div className="projects">
           <ProjectList data={this.state.data} />
         </div>
-      )
+      );
     }
 };
 
@@ -63,7 +63,7 @@ class Project extends React.Component {
     return (
       <div className="projects">
         <h1 className="centered">Project Page</h1>
-        <ProjectData url={`${Config.Api}/api/projects`}
+        <ProjectData url={`${Config.Api}/api/projects`} />
       </div>
     );
   }

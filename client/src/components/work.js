@@ -20,9 +20,6 @@ let styles = {
   workEmployer: {
     color: "#1565c0"
   },
-  workPosition: {
-
-  },
   workEmployerLogo: {
     maxWidth: 70,
     maxheight: 70

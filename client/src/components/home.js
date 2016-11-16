@@ -24,16 +24,6 @@ let styles = {
     }
 };
 
-class Content extends React.Component{
-    render() {
-      return (
-        <div className="container">
-          <TechnologyUsed />
-        </div> 
-      );
-    }
-};
-
 
 class Header extends React.Component {
     render() {
@@ -43,7 +33,17 @@ class Header extends React.Component {
     }
 };
 
-class TechnologyUsed extends React.Component {
+class Content extends React.Component{
+    render() {
+      return (
+        <div className="container">
+          <TechnologyData />
+        </div>
+      );
+    }
+};
+
+class TechnologyData extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -106,7 +106,7 @@ class TechnologyUsed extends React.Component {
         };
     }
     render() {
-        var technology = this.state.tech.map(function(tech, i){
+        var technologyList = this.state.tech.map(function(tech, i){
               return (
                     <div key={tech.title} className="col-sm-6 col-md-6 col-lg-4">
                         <TechnologyCard
@@ -118,29 +118,29 @@ class TechnologyUsed extends React.Component {
               );
             });
         return (
-                <div className="techUsed">
-                  <h1 className="centered">Technology Used to Create this Website</h1>
-                  <div style={styles.cardGrid} className="row">
-                     {technology}
-                  </div>
-                </div>
-            );
+          <div className="techUsed">
+            <h1 className="centered">Technology Used to Create this Website</h1>
+            <div style={styles.cardGrid} className="row">
+               {technologyList}
+            </div>
+          </div>
+        );
     }
 };
 
 class TechnologyCard extends React.Component {
     render() {
         return (
-              <div style={styles.card}>
-                <FlipCard>
-                  <FrontCardTechUsed image={this.props.image} />
-                  <BackCardTechUsed link={this.props.link}
-                        title={this.props.title}
-                        for={this.props.for}
-                        image={this.props.image} />
-                </FlipCard>
-              </div>
-            );
+          <div style={styles.card}>
+            <FlipCard>
+              <FrontCardTechUsed image={this.props.image} />
+              <BackCardTechUsed link={this.props.link}
+                    title={this.props.title}
+                    for={this.props.for}
+                    image={this.props.image} />
+            </FlipCard>
+          </div>
+        );
     }
 };
 

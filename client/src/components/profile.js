@@ -19,9 +19,6 @@ let styles = {
         listStyleType: "none",
         marginTop: "-20px",
         fontSize: "18px"
-    },
-    centered: {
-        textAlign: "center"
     }
 };
 
@@ -29,13 +26,37 @@ class ProfileInfo extends React.Component {
     render() {
       return (
         <ul style={styles.flexBox}>
-          <li style={styles.centered}><b>Role:</b> Software Engineer</li>
-          <li style={styles.centered}><b>Email:</b> gabriel.rivera2192@gmail.com</li>
-          <li style={styles.centered}><b>Github:</b> GabrielRivera21</li>
-          <li style={styles.centered}><b>Twitter:</b> @grivera021</li>
+          <li className="centered"><b>Role:</b> Software Engineer</li>
+          <li className="centered"><b>Email:</b> gabriel.rivera2192@gmail.com</li>
+          <li className="centered"><b>Github:</b> GabrielRivera21</li>
+          <li className="centered"><b>Twitter:</b> @grivera021</li>
         </ul>
       );
     }
+};
+
+class ProfileImage extends React.Component {
+  render() {
+    return (
+        <img style={styles.profilePic} src="/static/assets/img/profile_pic.jpg" alt="profile_pic"/>
+    )
+  }
+}
+
+class ProfileDetails extends React.Component {
+  render() {
+    return (
+      <div id="welcome_text" className="centered">
+          <p>
+            Welcome to my Portfolio Page.
+            Here you will be able to see my skill set and projects that
+            I have worked on, both personally and those that I did for my employers,
+            that I have permission to show.
+          </p>
+          <button className="btn btn-lg btn-material-blue-800">Contact Me</button>
+      </div>
+    );
+  }
 };
 
 class Profile extends React.Component {
@@ -47,21 +68,10 @@ class Profile extends React.Component {
                   <hr/>
                   <ProfileInfo/>
                   <div className="col-md-3 centered">
-                      <img style={styles.profilePic} src="/static/assets/img/profile_pic.jpg" alt="profile_pic"/>
+                    <ProfileImage />
                   </div>
                   <div className="col-md-9">
-                      <div style={styles.centered} id="welcome_text">
-                          <p>
-                            Welcome to my Portfolio Page.
-                            Here you will be able to see my skill set and projects that
-                            I've worked on, both personally and those that I did for my employers, that
-                            I have permission to show.
-                          </p>
-                      </div>
-                      <div className="centered">
-                          <button className="btn btn-lg btn-material-blue-800">Contact Me</button>
-                      </div>
-
+                    <ProfileDetails />
                   </div>
               </div>
           </Jumbotron>

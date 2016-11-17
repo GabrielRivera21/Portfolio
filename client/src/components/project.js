@@ -8,13 +8,15 @@ let styles = {
   projectImages: {
     height: 400,
     width: 500
+  },
+  projectDetails: {
+    margin: 10
   }
 }
 
 class ProjectData extends React.Component {
     constructor(props) {
       super(props);
-      this.loadProjectsFromServer = this.loadProjectsFromServer.bind(this);
       this.state = { data: [], loaded: false, failedToLoad: false };
     }
     componentDidMount() {
@@ -142,7 +144,7 @@ class ProjectImageGallery extends React.Component {
 class ProjectDetail extends React.Component {
   render() {
     return (
-      <div className="project-details">
+      <div style={styles.projectDetails} className="project-details">
         <h2>{this.props.title}</h2>
         {this.props.work_exp ? <h4>From: {this.props.work_exp}</h4> : null}
         {this.props.github_url ? <h5>Github: {this.props.github_url}</h5> : null}
@@ -157,7 +159,7 @@ class Project extends React.Component {
   render() {
     return (
       <div className="projects">
-        <h1 className="centered">Project Page</h1>
+        <h1 className="centered">Projects</h1>
         <ProjectData url={`${Config.API}/api/projects`} />
       </div>
     );

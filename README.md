@@ -107,21 +107,15 @@ To create a `virtualenv`, select a folder where you want to work with the projec
  frontend make sure to do the following steps, if you wish to change something
  on the frontend.
 
-##### Installation
+##### Installation and Running
 
-If you wish to make development on the frontend only, open another terminal window and
+If you wish to make development on the frontend, open another terminal window and
 do the following:
 
 1. Make sure you have the latest version of node and npm installed. I recommend nvm [https://github.com/creationix/nvm] (https://github.com/creationix/nvm).
 2. Install webpack globally `npm install -g webpack webpack-dev-server`
 3. Go into the client directory `cd client`
 3. Run `npm install`
-4. Run `npm run watch`
+4. Run `npm start` this will start a dev-sever with hot-reloading
 5. Make your changes
 6. After finishing run `npm run build` to have a production ready frontend
-
-##### Running Webpack Server only server
-
-Follow steps 1 through 4 and then:
-
-5. Run `npm start` to run a Webpack Dev server

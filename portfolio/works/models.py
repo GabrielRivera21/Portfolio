@@ -15,4 +15,4 @@ class WorkExperience(BaseModel):
     longitude = models.DecimalField(max_digits=18, decimal_places=6, default=0)
 
     def __str__(self):
-        return "id: %d employer: %s" % (self.id, self.employer)
+        return self.employer

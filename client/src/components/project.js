@@ -1,15 +1,16 @@
 import React from 'react';
 import Spinner from 'react-spinkit';
-import ImageGallery from 'react-image-gallery';
+import { Carousel } from 'react-bootstrap';
 
 import Config from '../config/config';
 
 let styles = {
   projectImages: {
-    height: 200,
-    width: 200
+    height: 400,
+    width: 500
   }
 }
+
 class ProjectData extends React.Component {
     constructor(props) {
       super(props);
@@ -67,7 +68,7 @@ class ProjectList extends React.Component {
         )
       });
     return (
-      <div className="project-list">
+      <div className="project-list container">
         {projectList.length > 0 ? projectList : <h3 className="centered">There are no Projects to display</h3>}
       </div>
     );
@@ -109,26 +110,30 @@ class ProjectImageGallery extends React.Component {
   onImageLoadHandler(event) {
     console.log('Images loaded', event.target);
   }
+  onImageError(event) {
+    console.log("Failed to load image");
+  }
   render() {
     let projectImages = [this.props.featured_image, ...this.props.extra_images];
     let images = projectImages.map((image) => {
-      let imageUrl = image;
-      if(imageUrl.startsWith('/media')) {
-        imageUrl = `${Config.API}${image}`;
-      }
-      return {
-          original: imageUrl,
-          thumbnail: imageUrl,
-          originalClass: 'img-responsive',
-          thumbnailClass: 'img-responsive'
-        };
-    });
+        let imageUrl = image;
+        if(imageUrl.startsWith('/media')) {
+          imageUrl = `${Config.API}${image}`;
+        }
+
+        return (
+          <Carousel.Item>
+            <div style={styles.projectImages} className="centered">
+              <img className="img-responsive centered" src={imageUrl} alt="project-image" />
+            </div>
+          </Carousel.Item>
+        )
+      });
     return (
       <div className="project-images">
-        <ImageGallery
-          items={images}
-          slideInterval={3000}
-          onImageLoad={this.onImageLoadHandler} />
+        <Carousel>
+          {images}
+        </Carousel>
       </div>
     );
   }

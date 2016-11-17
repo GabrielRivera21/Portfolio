@@ -12,7 +12,6 @@
     "react-bootstrap": "^0.28.2",
     "react-dom": "^0.14.5",
     "react-flipcard": "^0.2.1",
-    "react-image-gallery": "^0.7.3",
     "react-router": "^1.0.3",
     "react-spinkit": "^1.1.11",
     "react-star-rating-component": "^1.2.2"
@@ -32,8 +31,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline",
-    "watch": "babel --presets react src --watch --out-dir build",
+    "start": "babel --presets react src --watch --out-dir build | webpack-dev-server --inline",
     "build": "webpack -p --config webpack.production.config.js --progress --profile --colors"
   },
   "keywords": [],

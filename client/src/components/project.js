@@ -67,7 +67,7 @@ class ProjectList extends React.Component {
             description={project.description}
             featured_image={project.featured_image}
             extra_images={project.images} />
-        )
+        );
       });
     return (
       <div className="project-list container">
@@ -78,9 +78,6 @@ class ProjectList extends React.Component {
 };
 
 class ProjectItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="project-entry card-panel-no-hover">
@@ -105,26 +102,16 @@ class ProjectItem extends React.Component {
 };
 
 class ProjectImageGallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onImageLoadHandler = this.onImageLoadHandler.bind(this);
-  }
-  onImageLoadHandler(event) {
-    console.log('Images loaded', event.target);
-  }
-  onImageError(event) {
-    console.log("Failed to load image");
-  }
   render() {
     let projectImages = [this.props.featured_image, ...this.props.extra_images];
-    let images = projectImages.map((image) => {
+    let images = projectImages.map((image, index) => {
         let imageUrl = image;
         if(imageUrl.startsWith('/media')) {
           imageUrl = `${Config.API}${image}`;
         }
 
         return (
-          <Carousel.Item>
+          <Carousel.Item key={index}>
             <div style={styles.projectImages} className="centered">
               <img className="img-responsive centered" src={imageUrl} alt="project-image" />
             </div>
@@ -146,9 +133,9 @@ class ProjectDetail extends React.Component {
     return (
       <div style={styles.projectDetails} className="project-details">
         <h2>{this.props.title}</h2>
-        {this.props.work_exp ? <h4>From: {this.props.work_exp}</h4> : null}
-        {this.props.github_url ? <h5>Github: {this.props.github_url}</h5> : null}
-        {this.props.project_url ? <h5>Project: {this.props.project_url}</h5> : null}
+        {this.props.work_exp && <h4>Employer: {this.props.work_exp}</h4>}
+        {this.props.github_url && <h5>Github: {this.props.github_url}</h5>}
+        {this.props.project_url && <h5>Project: {this.props.project_url}</h5>}
         <p>{this.props.description}</p>
       </div>
     );

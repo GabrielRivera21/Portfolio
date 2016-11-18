@@ -8,7 +8,7 @@ class NavLeftLinks extends React.Component {
         return (
             <Nav>
                 <li><IndexLink to={'/'}>Home</IndexLink></li>
-                <li><Link to={'/About'}>About</Link></li>
+                {/*<li><Link to={'/About'}>About</Link></li>*/}
                 <li><Link to={'/skill'}>Skills</Link></li>
                 <li><Link to={'/project'}>Projects</Link></li>
                 <li><Link to={'/work'}>Work Experience</Link></li>

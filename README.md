@@ -101,13 +101,13 @@ To create a `virtualenv`, select a folder where you want to work with the projec
  Go to `http://localhost:8000/admin` in your browser and enter your credentials.
 
 
-#### Developing on Frontend
+## Developing on the Frontend
 
  This project uses [React](https://facebook.github.io/react/index.html) for the
  frontend make sure to do the following steps, if you wish to change something
  on the frontend.
 
-##### Installation and Running
+#### Installing the Frontend Dependencies
 
 If you wish to make development on the frontend, open another terminal window and
 do the following:
@@ -116,6 +116,23 @@ do the following:
 2. Install webpack globally `npm install -g webpack webpack-dev-server`
 3. Go into the client directory `cd client`
 3. Run `npm install`
-4. Run `npm start` this will start a dev-sever with hot-reloading
-5. Make your changes
-6. After finishing run `npm run build` to have a production ready frontend
+
+#### Running the Frontend Dev Server
+
+Run the dev-sever with hot-reloading with the following command:
+
+```
+$ npm start
+```
+
+#### Production building
+
+To have a production ready frontend just run the following command
+
+```
+$ npm run build
+```
+
+This will create an production ready `app.js` file and copy all of the static files into django `/static/`
+directory.
+

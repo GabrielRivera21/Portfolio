@@ -147,7 +147,7 @@ class Project extends React.Component {
     return (
       <div className="projects">
         <h1 className="centered">Projects</h1>
-        <ProjectData url={`${Config.API}/api/projects`} />
+        <ProjectData url={`${Config.API}/api/projects/`} />
       </div>
     );
   }

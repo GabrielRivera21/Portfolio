@@ -15,11 +15,14 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?presets[]=es2015&presets[]=react&presets[]=stage-0',
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react', 'stage-0']
+        }
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader",
+        loader: "style-loader!css-loader?minimize!",
       },
       {
         test: /\.png$/,
@@ -35,8 +38,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),
-        'API_URL': JSON.stringify('http://localhost:8002'),
-        'GM_API_KEY': JSON.stringify('AIzaSyDonpeckfQqPosKw8Aa3hn90C8RMQj-n8s') 
+        'API_URL': JSON.stringify('http://localhost:8000'),
+        'GM_API_KEY': JSON.stringify('AIzaSyDonpeckfQqPosKw8Aa3hn90C8RMQj-n8s')
       }
     }),
   ],

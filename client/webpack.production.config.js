@@ -16,11 +16,14 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?presets[]=es2015&presets[]=react&presets[]=stage-0',
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react', 'stage-0']
+        }
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader",
+        loader: "style-loader!css-loader?minimize!",
       },
       {
         test: /\.png$/,

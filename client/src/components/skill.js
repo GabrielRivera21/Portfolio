@@ -125,10 +125,10 @@ class SkillItem extends React.Component {
         return 'None'
     }
     showSkillDetails() {
-        this.setState(() => ({showDetails: true}));
+        this.setState({showDetails: true});
     }
     hideSkillDetails() {
-        this.setState(() => ({showDetails: false}));
+        this.setState({showDetails: false});
     }
     render() {
         let skillDetails = null;
@@ -149,8 +149,7 @@ class SkillItem extends React.Component {
                         <StarRatingComponent
                             name="proficiency_level"
                             value={this.props.proficiency_level}
-                            editing={false}
-                            />
+                            editing={false} />
                     </div>
                     <p style={styles.skillLevel}>Skill level: {this.showSkillLevelName(this.props.proficiency_level)}</p>
                 </div>
@@ -169,7 +168,7 @@ class SkillDetails extends React.Component {
         };
     }
     hideSkillDetails() {
-        this.setState(() => ({showModal: false}));
+        this.setState({showModal: false});
         this.props.handleHideModal();
     }
     render() {

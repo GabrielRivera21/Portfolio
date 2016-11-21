@@ -1,7 +1,7 @@
 {
   "name": "Portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "My own portfolio page, to showcase skills, projects and jobs",
   "main": "./src/app.js",
   "dependencies": {
     "google-map-react": "^0.21.3",

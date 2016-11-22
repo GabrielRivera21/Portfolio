@@ -2,6 +2,8 @@ import React from 'react';
 import Profile from './profile';
 import FlipCard from 'react-flipcard';
 
+import TECH_DATA from '../constants/tech-data';
+
 let styles = {
     linkText: {
        color: "#1565c0"
@@ -37,76 +39,15 @@ class Content extends React.Component{
     render() {
       return (
         <div className="container">
-          <TechnologyData />
+          <TechnologyData data={TECH_DATA.tech}/>
         </div>
       );
     }
 };
 
 class TechnologyData extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          tech: [
-            {
-              title: "Python",
-              link: "https://python.org",
-              for: "Code the Backend",
-              image: "/static/assets/img/python.png"
-            },
-            {
-              title: "Django",
-              link: "https://www.djangoproject.com/",
-              for: "Backend",
-              image: "/static/assets/img/django.png"
-            },
-            {
-              title: "React",
-              link: "https://facebook.github.io/react/",
-              for: "Frontend",
-              image: "/static/assets/img/react.jpg"
-            },
-            {
-              title: "Django Rest Framework",
-              link: "http://www.django-rest-framework.org",
-              for: "REST API",
-              image:"/static/assets/img/django-rest.png"
-            },
-            {
-              title: "Heroku",
-              link: "https://heroku.com",
-              for: "Hosting",
-              image: "/static/assets/img/heroku.png"
-            },
-            {
-              title: "Postgres DB",
-              link: "http://www.postgresql.org/",
-              for: "Database",
-              image: "/static/assets/img/postgresql.jpg"
-            },
-            {
-              title: "npm",
-              link: "https://www.npmjs.com/",
-              for: "build and watch",
-              image: "/static/assets/img/npm-logo.svg"
-            },
-            {
-              title: "Webpack",
-              link: "https://webpack.github.io/",
-              for: "build",
-              image: "/static/assets/img/webpack.jpg"
-            },
-            {
-              title: "Bootstrap",
-              link: "https://getbootstrap.com",
-              for: "CSS Framework",
-              image: "/static/assets/img/bootstrap.jpg"
-            },
-          ]
-        };
-    }
     render() {
-        var technologyList = this.state.tech.map(function(tech, i){
+        var technologyList = this.props.data.map(function(tech, i){
               return (
                     <div key={tech.title} className="col-sm-6 col-md-6 col-lg-4">
                         <TechnologyCard

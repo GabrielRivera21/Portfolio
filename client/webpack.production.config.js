@@ -46,5 +46,10 @@ module.exports = {
         'GM_API_KEY': JSON.stringify('AIzaSyDonpeckfQqPosKw8Aa3hn90C8RMQj-n8s')
       }
     }),
+    new webpack.optimize.UglifyJsPlugin({
+       compress:{
+         warnings: true
+       }
+    }),
   ]
 };

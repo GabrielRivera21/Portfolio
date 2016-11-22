@@ -1,9 +1,9 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import GoogleMap from 'google-map-react';
-import { fitBounds } from 'google-map-react/utils';
 
 import Config from '../config/config';
+import PLACES_DATA from '../constants/places-data'
 
 const MARKER_WIDTH = 49;
 const MARKERT_HEIGHT = 64;
@@ -60,45 +60,8 @@ class AboutMe extends React.Component {
 };
 
 class TravelledMap extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      markers: [
-        {
-          name: "Puerto Rico",
-          lat: 18.45,
-          lng: -66.0667
-        },
-        {
-          name: "Ohio",
-          lat: 39.175300,
-          lng: -84.294400
-        },
-        {
-          name: "San Francisco",
-          lat: 37.787999,
-          lng: -122.399400
-        },
-        {
-          name: "Orlando, Florida",
-          lat: 28.5383,
-          lng: -81.3792
-        },
-        {
-          name: "New York",
-          lat: 40.7128,
-          lng: -74.0059
-        },
-        {
-          name: "Los Angeles",
-          lat: 34.0522,
-          lng: -118.2437
-        }
-      ]
-    };
-  }
   render() {
-    let markers = this.state.markers.map((location, index) => {
+    let markers = this.props.data.map((location, index) => {
         return (
            <div key={index} style={styles.markerStyle}
              lat={location.lat} lng={location.lng}>
@@ -125,7 +88,7 @@ class About extends React.Component {
     return (
       <div className="about">
         <AboutMe />
-        <TravelledMap />
+        <TravelledMap data={PLACES_DATA.markers}/>
       </div>
     );
   }

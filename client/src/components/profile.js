@@ -53,7 +53,8 @@ class ProfileDetails extends React.Component {
             I have worked on, both personally and those that I did for my employers,
             that I have permission to show.
           </p>
-          <button className="btn btn-lg btn-material-blue-800">Contact Me</button>
+          <a href="mailto:gabriel.rivera2192@gmail.com?subject=Contact%20from%20Portfolio"
+            className="btn btn-lg btn-material-blue-800">Contact Me</a>
       </div>
     );
   }

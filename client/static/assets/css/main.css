@@ -68,3 +68,15 @@ footer {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.project-image {
+  height: 400px;
+  width: 500px;
+}
+
+@media(max-width: 760px) {
+  .project-image {
+    height: 225px;
+    width: 275px;
+  }
+}

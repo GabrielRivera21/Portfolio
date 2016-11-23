@@ -12,7 +12,7 @@ const MARKER_ORIGIN_Y = MARKERT_HEIGHT;
 
 let styles = {
   workCard: {
-    width: "100%"
+    width: "95%"
   },
   workDetails: {
     margin: 10
@@ -31,7 +31,7 @@ let styles = {
   },
   workMap: {
     height: 250,
-    margin: "10px"
+    margin: "1%"
   },
   markerStyle: {
     backgroundImage: 'url("/static/assets/img/mapIcon.svg")',
@@ -105,7 +105,7 @@ class WorkExperienceList extends React.Component {
         );
       });
     return (
-      <div className="workExperienceList container">
+      <div className="container">
         {workList.length > 0 ? workList : <h3 className="centered">There are no Work Experiences to display</h3>}
       </div>
     );

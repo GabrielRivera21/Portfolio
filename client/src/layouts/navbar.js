@@ -22,7 +22,7 @@ class NavRightLinks extends React.Component {
         return (
            <Nav pullRight>
               <NavItem href={'/docs'}>API Docs</NavItem>
-              <NavItem href={'https://github.com/GabrielRivera21/Portfolio'}>Source Code</NavItem>
+              <NavItem href={'https://github.com/GabrielRivera21/Portfolio'}>Source</NavItem>
            </Nav>
         );
     }

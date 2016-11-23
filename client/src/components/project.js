@@ -5,10 +5,6 @@ import { Carousel } from 'react-bootstrap';
 import Config from '../config/config';
 
 let styles = {
-  projectImages: {
-    height: 400,
-    width: 500
-  },
   projectDetails: {
     margin: 10
   }
@@ -112,8 +108,8 @@ class ProjectImageGallery extends React.Component {
 
         return (
           <Carousel.Item key={index}>
-            <div style={styles.projectImages} className="centered">
-              <img className="img-responsive centered" src={imageUrl} alt="project-image" />
+            <div className="centered">
+              <img className="img-responsive centered project-image" src={imageUrl} alt="project-image" />
             </div>
           </Carousel.Item>
         )

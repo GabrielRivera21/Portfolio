@@ -196,7 +196,7 @@ class Work extends React.Component {
     return (
       <div id="workExperience">
         <h1 className="centered">Work Experience</h1>
-        <WorkData url={Config.API + '/api/work/'} />
+        <WorkData url='/api/work/' />
       </div>
     );
   }

@@ -4,8 +4,6 @@ import { Modal, Button } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component'
 import Spinner from 'react-spinkit';
 
-import Config from '../config/config';
-
 let styles = {
     headerBox: {
          margin: "-20px 0% 1% 0%"
@@ -139,13 +137,13 @@ class Skill extends React.Component {
         return (
           <div id="skills" style={styles.headerBox}>
             <ParallaxHeader image="/static/assets/img/pg_lang_bg.jpg" title="Programming Languages"/>
-            <SkillData url={Config.API + "/api/skills/?skill_type=pl"} />
+            <SkillData url="/api/skills/?skill_type=pl" />
             <ParallaxHeader image="/static/assets/img/st_land_bg.jpg" title="Software Tools" />
-            <SkillData url={Config.API + "/api/skills/?skill_type=st"} />
+            <SkillData url="/api/skills/?skill_type=st" />
             <ParallaxHeader image="/static/assets/img/frameworks_bg.jpg" title="Frameworks and Platforms" />
-            <SkillData url={Config.API + "/api/skills/?skill_type=fr"} />
+            <SkillData url="/api/skills/?skill_type=fr" />
             <ParallaxHeader image="/static/assets/img/deployments_bg.jpg" title="Deployment Environments"/>
-            <SkillData url={Config.API + "/api/skills/?skill_type=dp"} />
+            <SkillData url="/api/skills/?skill_type=dp" />
           </div>
         );
     }

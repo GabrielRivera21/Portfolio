@@ -2,8 +2,6 @@ import React from 'react';
 import Spinner from 'react-spinkit';
 import { Carousel } from 'react-bootstrap';
 
-import Config from '../config/config';
-
 let styles = {
   projectDetails: {
     margin: 10
@@ -101,15 +99,10 @@ class ProjectImageGallery extends React.Component {
   render() {
     let projectImages = [this.props.featured_image, ...this.props.extra_images];
     let images = projectImages.map((image, index) => {
-        let imageUrl = image;
-        if(imageUrl.startsWith('/media')) {
-          imageUrl = `${Config.API}${image}`;
-        }
-
         return (
           <Carousel.Item key={index}>
             <div className="centered">
-              <img className="img-responsive centered project-image" src={imageUrl} alt="project-image" />
+              <img className="img-responsive centered project-image" src={image} alt="project-image" />
             </div>
           </Carousel.Item>
         )
@@ -143,7 +136,7 @@ class Project extends React.Component {
     return (
       <div className="projects">
         <h1 className="centered">Projects</h1>
-        <ProjectData url={`${Config.API}/api/projects/`} />
+        <ProjectData url='/api/projects/' />
       </div>
     );
   }

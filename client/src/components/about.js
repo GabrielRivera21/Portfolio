@@ -48,7 +48,7 @@ class AboutMe extends React.Component {
             Computer Science and started working in the software development industry while
             I was still in college.
           </p>
-          <h3>Hobbies</h3>
+          <h2>Hobbies</h2>
           <p>
             Some of my hobbies are just to watch Netflix, Adventuring the outdoors, Roadtrips,
             watching Anime, playing video games and hanging out at bars with friends.

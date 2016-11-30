@@ -42,7 +42,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production'),
-        'API_URL': JSON.stringify(''),
         'GM_API_KEY': JSON.stringify('AIzaSyDonpeckfQqPosKw8Aa3hn90C8RMQj-n8s')
       }
     }),

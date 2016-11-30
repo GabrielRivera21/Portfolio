@@ -31,7 +31,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "start": "babel --presets react src --watch --out-dir build | webpack-dev-server --inline",
+    "start": "babel --presets react src --watch --out-dir build | webpack-dev-server --inline --hot",
     "build": "webpack -p --config webpack.production.config.js --progress --profile --colors"
   },
   "keywords": [],
